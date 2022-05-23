@@ -1,4 +1,4 @@
-package com.restaurant.service.restaurantservice;
+package com.restaurant.service10.restaurantservice;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
