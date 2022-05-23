@@ -32,9 +32,9 @@ public class Reservation {
     @Column(name = "TOTAL_RESERVATION") 
     private Float totalReservation;
 
-    @Column(name = "NUMBRE_OF_TABLE") 
+    @Column(name = "NUMBER_OF_TABLE") 
     private int numberOfTable;
 
-    @OneToMany(mappedBy="order") //nombre del atributo en la clase B       
+    @OneToMany(mappedBy="order")       
     private List<Order> orders;
 }

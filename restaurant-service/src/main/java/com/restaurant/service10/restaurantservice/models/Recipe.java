@@ -22,7 +22,7 @@ public class Recipe {
     private String prepare;
 
     @Column(name = "OBSERVATION") 
-    private String observationS;
+    private String observations;
 
     @ManyToOne
     @JoinColumn(name="RECIPE_ID", nullable=false)
