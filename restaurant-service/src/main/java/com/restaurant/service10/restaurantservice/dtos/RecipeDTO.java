@@ -1,9 +1,15 @@
 package com.restaurant.service10.restaurantservice.dtos;
 
-public class RecipeDTO {
+import java.util.List;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+public class RecipeDTO extends NewRecipeDTO{
     private Long id;
-    private String name;
-    private String ingredients;
-    private String prepare;
-    private String observations;
+    private List<FoodDTO> foods;
 }
