@@ -4,9 +4,10 @@ import { Home } from "./components/Home";
 import { OrderList } from "./components/order/OrderList";
 import { OrderForm } from "./components/order/OrderForm";
 import { OrderCard } from "./components/order/OrderCard";
+import { RecipeForm } from "./components/recipe/RecipeForm";
 
-const title = "Online Test";
-const description = "Aplicación web para la automatización de cuestionarios en línea";
+const title = "Restaurant Service";
+const description = "Aplicación web para la automatización de servicio de restaurante";
 
 const App: React.FC = () => {
   return (
@@ -29,7 +30,8 @@ const App: React.FC = () => {
           <Route path="/orders" element={<OrderList />} />          
           <Route path="/orders/create" element={<OrderForm />} />    
           <Route path="/orders/retrieve/:id" element={<OrderCard/>} />      
-          <Route path="/orders/update/:id" element={<OrderForm />} />    
+          <Route path="/orders/update/:id" element={<OrderForm />} />
+          <Route path="/orders/:idOrder/recipes/create" element={<RecipeForm />} />    
         </Routes>
       </div>
     </div>

@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { FaArrowLeft, FaTrash } from "react-icons/fa";
 import { Link , useParams} from 'react-router-dom';
 import IOrderModel from "../../models/Order";
+import IRecipeModel from "../../models/Recipe";
 import OrderService from "../../services/OrderServices";
+import RecipeService from "../../services/RecipeService";
+
 
 export const OrderCard = () => {
   const { id }= useParams();
@@ -36,14 +39,17 @@ export const OrderCard = () => {
             <li>Mesero encargado : {order.waiter}</li>
           </ul>
           <br />
-              <div className="btn-group" role="group">                
+            <div className="btn-group" role="group">								
                 <Link to={"/orders"} className="btn btn-primary">
                     <FaArrowLeft /> Volver
                 </Link>
-                <button type="button" className="btn btn-danger">
+                <Link to={"/orders/" + order.id + "/recipes/create"} className="btn btn-success">
+                    <FaArrowLeft /> Agregar receta
+                </Link>
+								<button type="button" className="btn btn-danger">
                   <FaTrash />Eliminar
                 </button>
-              </div>
+							</div>
           </div>
 
         ) : 

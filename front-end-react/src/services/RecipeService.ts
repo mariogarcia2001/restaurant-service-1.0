@@ -1,15 +1,16 @@
 import Swal from "sweetalert2";
 import http from "../http-common";
-import IOrderData from "../models/Order";
+import IRecipeModel from "../models/Recipe";
 
-const create = async (data: IOrderData) => {    
+const create = async (data: IRecipeModel) => {    
   try {
-    const response = await http.post<IOrderData>("/orders", data);
+    const url : string = "/orders/" + data.order!.id + "/recipes";
+    const response = await http.post<IRecipeModel>(url, data);
     if(response.status === 201){
       Swal.fire({
         icon: 'success',
         title: 'Correcto',
-        text: 'El order ha sido creada correctamente',
+        text: 'La receta ha sido creado correctamente',
         confirmButtonText: 'Aceptar'    
 
       });
@@ -25,7 +26,7 @@ const create = async (data: IOrderData) => {
     });
   }
 };
-
+/*
 const retrieve = async (id: number) => {
     return http.get<IOrderData>(`/orders/${id}`);
 };
@@ -37,7 +38,7 @@ const update = async (data: IOrderData) => {
       Swal.fire({
         icon: 'success',
         title: 'Correcto',
-        text: 'El order ha sido actualizada',
+        text: 'La orden ha sido actualizada',
         confirmButtonText: 'Aceptar'    
       });
     }
@@ -75,6 +76,7 @@ const remove = async (id: number) => {
 
 };
 
+
 const list = (page: number, size: string, sort? : String) => {
   const urlRequest : string = "/orders/" + page + "/" + size ;
   console.log(urlRequest);
@@ -85,15 +87,14 @@ const count = async () =>  {
   const response = await http.get<number>("/orders/count");
   return response.data;
 };
-
-const OrderService = {
+*/
+const RecipeService = {
   create,
-  retrieve,
-  update,
-  remove,
-  list,
-  count
+  //retrieve,
+  //update,
+  //remove,
+  //list,
+  //count
 
 };
-export default OrderService;
-
+export default RecipeService;
